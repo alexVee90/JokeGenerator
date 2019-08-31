@@ -1,0 +1,31 @@
+<h2>Chuck Norris Joke Generator</h2>
+<form>
+  <div>
+    <mat-form-field class="example-full-width">
+      <input
+        [(ngModel)]="inputVal"
+        matInput
+        placeholder="Number of Jokes"
+        type="number"
+        name="numberofjokes"
+        #numberOfJokes
+      />
+    </mat-form-field>
+  </div>
+  <div>
+    <a mat-raised-button routerLink="." (click)="showJokes(numberOfJokes.value)"
+      >Get Jokes</a
+    >
+  </div>
+</form>
+<mat-form-field id="search-bar" *ngIf="jokes.length > 0">
+  <input
+    matInput
+    #searchInput
+    placeholder="Search..."
+    [(ngModel)]="searchText"
+    autocomplete="off"
+  />
+</mat-form-field>
+<app-jokes *ngFor="let joke of jokes | filter: searchText" [joke]="joke">
+</app-jokes>

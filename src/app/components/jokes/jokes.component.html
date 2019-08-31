@@ -1,0 +1,27 @@
+<mat-list>
+  <h5>Joke Number: {{ joke.id }}</h5>
+  <mat-list-item id="mat"
+    >{{ joke.joke }}
+    <span id="icons">
+      <button (click)="onUpdate(joke)">
+        <i class="fa fa-pencil"></i>
+      </button>
+      <button (click)="onDelete(joke)">
+        <i class="fa fa-remove"></i>
+      </button> </span
+  ></mat-list-item>
+  <form *ngIf="edit">
+    <mat-form-field id="edit-text">
+      <input
+        [(ngModel)]="text"
+        name="text"
+        matInput
+        placeholder="Edit joke..."
+      />
+    </mat-form-field>
+    <a id="edit-btn" (click)="onEdit()" mat-raised-button routerLink="."
+      >Edit Joke</a
+    >
+  </form>
+  <mat-divider></mat-divider>
+</mat-list>
